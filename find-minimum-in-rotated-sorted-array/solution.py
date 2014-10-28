@@ -19,11 +19,11 @@ class Solution:
         right = len(num)-1
         mini = 0
         while right >= left:
+            mid = left + int((right-left)/2)
             if num[left] <= num[right]:
                 mini = num[left]
                 break
-            mid = left + int((right-left)/2)
-            if num[left] <= num[mid]:
+            elif num[left] <= num[mid]:
                 left = mid+1
             else:
                 right = mid
