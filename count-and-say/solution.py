@@ -16,19 +16,14 @@ class Solution:
         t = '1'
         while n > 1:
             r = ""
-            while t:
-                t_len = len(t)
-                if len(t) == 1:
-                    r += '1' + t
-                    break
-                for i in range(1, t_len):
-                    if t[i] != t[0]:
-                        r += str(i) + t[0]
-                        t = t[i:]
-                        break
+            c = 1
+            for i in range(1, len(t)):
+                if t[i] != t[i-1]:
+                    r += str(c) + t[i-1]
+                    c = 1
                 else:
-                    r += str(t_len) + t[0]
-                    t = t[t_len:]
+                    c += 1
+            r += str(c) + t[-1]
             t = r
             n -= 1
         return t
